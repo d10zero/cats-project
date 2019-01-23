@@ -2,13 +2,6 @@
 <nav class="navbar navbar-default">
   <div class="container-fluid">
     <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <a class="navbar-brand" href="#"></a>
     </div>
   </div>
 </nav>
@@ -24,17 +17,38 @@
       <button class="btn btn-primary btn-lg" (click)="viewAllCards()">View All Cards</button>
     </div>
   </div>
-  <div class="row" *ngIf="!showFavorite">
-    <div *ngFor="let cat of catCards" class="col-md-4">
-      <card [catcard]="cat"></card>
+  <div *ngIf="showFavorite">
+    <div *ngFor="let cat of catCards">
+      <div class="row">
+        <div class="col-md-3"></div>
+        <div *ngIf="cat.favorite" class="col-md-6">
+            <card [catcard]="cat"></card>
+        </div>
+        <div class="col-md-3"></div>
+      </div>
     </div>
   </div>
-  <div class="row" *ngIf="showFavorite">
-    <div *ngFor="let cat of catCards">
-      <div *ngIf="cat.favorite" class="col-md-4">
+  <div *ngIf="!showFavorite">
+    <div class="row">
+      <div *ngFor="let cat of catCards" class="col-md-4">
         <card [catcard]="cat"></card>
       </div>
     </div>
   </div>
 </div>
+
+
+
+
 <router-outlet></router-outlet>
+
+
+
+<div class="credits">
+    <p>
+        <a href="http://jasonwatmore.com/post/2018/05/25/angular-6-custom-modal-window-dialog-box" target="_top">Angular 6 - Custom Modal Window / Dialog Box</a>
+    </p>
+    <p>
+        <a href="http://jasonwatmore.com" target="_top">JasonWatmore.com</a>
+    </p>
+</div>

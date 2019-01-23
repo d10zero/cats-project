@@ -1,18 +1,30 @@
-<div class="row" style="padding-top: 25px">
-  <div class="col-md-12" style="max-width: 100%">
-    <div class="card" width="200">
-      <div class="card-body">
-        <div class="card-text" style="align-content: center;">
-          <p style="align-items: center;"> 
-            <img src={{catcard.image}} width="300" height="300" style="max-width: 100%">
-          </p>
-          <h3>
-            {{catcard.fact}}
-          </h3>
+<div class="container-fluid">
+  <div class="row" style="padding-top: 25px">
+    <div class="col-md-12" style="max-width: 100%">
+      <div class="card" width="200">
+        <div class="card-body">
+          <div class="card-text" style="align-content: center;">
+            <p style="align-items: center;"> 
+              <img src={{catcard.image}} width="300" height="300" style="max-width: 100%">
+            </p>
+            <p *ngIf="catcard.favorite">
+              <i class="fas fa-heart"></i>
+            </p>
+            <p *ngIf="!catcard.favorite">
+              <i class="far fa-heart"></i>
+            </p>
+            <h3>
+              {{catcard.fact}}
+            </h3>
+            <h5>
+              <button class="btn btn-default" (click)="viewCard()">View Card</button>
+            </h5>
+          </div>
         </div>
       </div>
     </div>
   </div>
 </div>
+
 
 <router-outlet></router-outlet>

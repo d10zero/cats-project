@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { CatService } from './services/cats.service';
 import { Subscriber } from  'rxjs';
 import { CatCard } from './models/catcard.model'
+
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -14,15 +16,16 @@ export class AppComponent {
 
   catCards = new Array<CatCard>()
 
+
+
   constructor(private catService: CatService) {
     
   }
 
   ngOnInit(){
-
     this.findCatFact()
-    //this.findCatImage()
   }
+
 
   viewAllCards() {
     this.showFavorite = false;
