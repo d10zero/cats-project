@@ -27,6 +27,8 @@ export class CatService {
 		return this.http.get<Observable<any>>(ApiDetails.catFacts, {headers: new HttpHeaders( { 'Access-Control-Allow-Origin': '*', 'Content-Type': 'application/json'}) } );
 	}
 
+	
+
 	//	Access-Control-Allow-Origin: http://thecatapi.com
 
 		//Access-Control-Allow-Origin: http://catfact.ninja

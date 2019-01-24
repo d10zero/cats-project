@@ -24,7 +24,7 @@ import { CatCard } from './models/catcard.model';
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    MatCardModule
+    MatCardModule,
   ],
   providers: [CatService, CatCard],
   bootstrap: [AppComponent]

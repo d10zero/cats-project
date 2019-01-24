@@ -1,29 +1,33 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { ViewChild, ElementRef } from '@angular/core';
 import { CatService } from './services/cats.service';
-import { Subscriber } from  'rxjs';
+import { Subscriber, Subscription } from  'rxjs';
 import { CatCard } from './models/catcard.model'
 
+declare var jQuery:any;
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+
+export class AppComponent implements OnInit {
   title = 'bento';
-
-  showFavorite = false
-
+  showFavorite: boolean = false
   catCards = new Array<CatCard>()
+  selectedCard: CatCard = new CatCard()
+  subscription: Subscription
 
+  constructor(private catService: CatService) { }
 
-
-  constructor(private catService: CatService) {
-    
-  }
 
   ngOnInit(){
     this.findCatFact()
+  }
+
+  viewCard(cat: CatCard){
+    this.selectedCard = cat
   }
 
 
@@ -33,7 +37,6 @@ export class AppComponent {
 
   viewFavorites() {
     this.showFavorite = true
-    console.log("favorite cat cards:", this.catCards)
   }
 
   compare(a, b) {
